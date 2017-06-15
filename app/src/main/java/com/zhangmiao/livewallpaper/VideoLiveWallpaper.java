@@ -10,7 +10,6 @@ import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.service.wallpaper.WallpaperService;
-import android.util.Log;
 import android.view.SurfaceHolder;
 
 import java.io.IOException;
@@ -19,7 +18,7 @@ import java.io.IOException;
  * Author: zhangmiao
  * Date: 2017/6/15
  */
-public class VideoLiveWallpaper extends WallpaperService{
+public class VideoLiveWallpaper extends WallpaperService {
     @Override
     public Engine onCreateEngine() {
         return new VideoEngine();
@@ -76,7 +75,7 @@ public class VideoLiveWallpaper extends WallpaperService{
                             break;
                     }
                 }
-            },intentFilter);
+            }, intentFilter);
         }
 
         @Override
@@ -106,7 +105,7 @@ public class VideoLiveWallpaper extends WallpaperService{
             try {
                 AssetManager assetManager = getApplicationContext().getAssets();
                 AssetFileDescriptor fileDescriptor = assetManager.openFd("test1.mp4");
-                MyLog.d("fileDescriptor == null ?" + (fileDescriptor==null));
+                MyLog.d("fileDescriptor == null ?" + (fileDescriptor == null));
                 mMediaPlyer.setDataSource(fileDescriptor.getFileDescriptor(),
                         fileDescriptor.getStartOffset(),
                         fileDescriptor.getLength());
